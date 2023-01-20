@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+        <title>Expression Calculator Test Page</title>
+        <style type='text/css'><%=require('./index.less').default%></style>
+        <script type='text/javascript' src='./dist/exprcalc.js'></script>
+    </head>
+    <body>
+		<ribbon><a href='https://github.com/frank-deng/linefold/'>Fork me on GitHub</a></ribbon>
+        <form class='inputForm' method="post" action="#" id='inputForm'>
+            <input placeholder="Input expression" name='exprInput'/>
+            <button disabled type='submit' translate='Calculate'>Calculate</button>
+            <div class='calcResult' id='calcResult'></div>
+        </form>
+    </body>
+<% if('development'==(env.NODE_ENV||'').trim()){ %>
+    <script src='__index__.js'></script>
+<% }else{ %>
+    <script><%=compilation.assets['__index__.js'].source()%></script>
+<% } %>
+</html>
